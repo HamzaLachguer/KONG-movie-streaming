@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="KONG – Your ultimate movie streaming paradise! Watch thousands of blockbusters, classics, and exclusive films anytime, anywhere. No ads, no hassle—just epic entertainment. Start your free trial now!">
+  <meta name="title" content="KONG - Rule Your Entertainment Kingdom">
+  <meta name="keywords" content="">
+  <meta http-equiv="X-UA-Compatible" content="IE=7">
+
+  <!-- TITLE & FAVION -->
+  <title>KONG - Rule Your Entertainment Kingdom</title>
+  <link rel="shortcut icon" href="/icon.svg" type="image/x-icon">
+
+  <!-- STYLES CSS & TAILWINDCSS -->
+  <link rel="stylesheet" href="/styles.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- GOOGLE FONTS "INTER" -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+</head>
+
+
+<body class="bg-black">
+  
+
+  <header class="flex items-center justify-between p-5 absolute top-0 z-[999999] w-full">
+    <a href="#" class="h-10 grid place-items-center">
+      <img src="/logo.svg" alt="KONG log - Back to home" class="h-6">
+    </a>
+    
+    <nav id="nav-menu" class="hide-menu nav-menu transition-all ease-in-out duration-300 absolute z-50 top-20 left-0 w-full bg-black lg:bg-transparent lg:h-fit lg:static lg:w-fit" aria-label="main navigation menu" aria-hidden="true" role="navigation">
+      <ul id="nav-list" class="nav-list text-sm capitalize p-5 text-white flex flex-col gap-6 lg:flex-row lg:text-base lg:gap-7">
+        <li class="transition-all ease-in-out duration-300 lg:hover:scale-110"><a href="">Horror</a></li>
+        <li class="transition-all ease-in-out duration-300 lg:hover:scale-110"><a href="">Adventure</a></li>
+        <li class="transition-all ease-in-out duration-300 lg:hover:scale-110"><a href="">Romantic</a></li>
+        <li class="transition-all ease-in-out duration-300 lg:hover:scale-110"><a href="">comedy</a></li>
+        <li class="transition-all ease-in-out duration-300 lg:hover:scale-110"><a href="">animation</a></li>
+      </ul>
+    </nav>
+
+    <div class="flex gap-4">
+      <button class="h-10 w-10 grid place-items-center">
+        <svg class="" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M21 21L17.5001 17.5M20 11.5C20 16.1944 16.1944 20 11.5 20C6.80558 20 3 16.1944 3 11.5C3 6.80558 6.80558 3 11.5 3C16.1944 3 20 6.80558 20 11.5Z" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+
+      <button id="toggle-menu-btn" class=" h-10 w-10 flex flex-col gap-1 items-center justify-center relative lg:hidden" aria-expanded="false" aria-label="navigation menu toggler" aria-controls="nav-menu">
+        <div class="line h-[2px] w-5 bg-white "></div>
+        <div class="line h-[2px] w-5 bg-white "></div>
+        <div class="line h-[2px] w-5 bg-white "></div>
+      </button>
+    </div>
+  </header>
+
+
+  <main class="">
+    <section class="relative">
+      <div>
+        <div class="h-screen overflow-hidden">
+          <img class="w-full h-full object-cover object-center" src="https://image.tmdb.org/t/p/original/vJerZdFTbPwNjKmAcSipd3jkBwW.jpg" alt="Ballerina (2025)" loading="lazy">
+        </div> 
+
+        <div id="hero-content" class="text-white flex flex-col gap-5 absolute z-[8888] bottom-9 left-0 p-5">
+
+          <div class="h-[100px] w-full overflow-hidden">
+            <img class="h-full object-cover object-center" src="https://image.tmdb.org/t/p/original/jdAWFEuysoBGkzB1MOnHr9qqqqP.png" alt="" loading="lazy">
+          </div>
+
+          <div class="flex flex-col gap-5">
+            <p class="max-w-[560px]">Taking place during the events of John Wick: Chapter 3 – Parabellum, Eve Macarro begins her training in the assassin traditions of the Ruska Roma.</p>
+
+            <div class="flex flex-col gap-5 md:flex-row md:items-center">
+              <button class="w-fit flex items-center text-[15px] text-black gap-[10px] px-4 capitalize font-medium py-2 bg-white rounded-3xl">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M5 4.98951C5 4.01835 5 3.53277 5.20249 3.2651C5.37889 3.03191 5.64852 2.88761 5.9404 2.87018C6.27544 2.85017 6.67946 3.11953 7.48752 3.65823L18.0031 10.6686C18.6708 11.1137 19.0046 11.3363 19.1209 11.6168C19.2227 11.8621 19.2227 12.1377 19.1209 12.383C19.0046 12.6635 18.6708 12.886 18.0031 13.3312L7.48752 20.3415C6.67946 20.8802 6.27544 21.1496 5.9404 21.1296C5.64852 21.1122 5.37889 20.9679 5.20249 20.7347C5 20.467 5 19.9814 5 19.0103V4.98951Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                watch now
+              </button>
+              <p class="text-yellow-500">Vengeance has a new face.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="absolute bottom-0 p-5 h-2/3 w-full flex flex-col items-center justify-between">
+        <div class="flex items-center justify-between w-full">
+          <button class="text-white bg-[#00000070] h-10  w-10 grid place-items-center rounded-3xl">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+          <button class="text-white bg-[#00000050] h-10  w-10 grid place-items-center rounded-3xl">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+        </div>
+
+        <div class="flex gap-2">
+          <button data-slide-id="0" class="h-2 w-6 transition-all ease-in-out duration-300 bg-white rounded-2xl cursor-pointer"></button>
+          <button data-slide-id="0" class="h-2 w-2 transition-all ease-in-out duration-300 bg-[#ffffff50] rounded-2xl"></button>
+        </div>
+      </div>
+    </section>
+
+
+    <section class=" text-white">
+
+      <!-- movies or series  -->
+      <div class="grid grid-cols-2">
+        <button class="border-t border-b border-r solid border-[#ffffff50] py-3 px-5 bg-[#ff0000]" data-category="movies">Movies</button>
+        <button class="border-t border-b  solid border-[#ffffff50] py-3 px-5" data-category="series">TV Shows</button>
+      </div>
+
+      <!-- filter by type -->
+      <ul class="px-5 py-10 flex gap-3 flex-wrap">
+        <li><button class="bg-[#ffffff50] w-20 px-3 py-1 grid place-items-center" data-genre-id="">All</button></li>
+      </ul>
+
+      <ul class="movie-grid px-5 grid grid-cols-2 gap-3 md:grid-cols-3 lg:grid-cols-5 xl:grid-cols-6">
+        <li class="group-card flex flex-col gap-1 cursor-pointer">
+          <div class="w-full overflow-hidden">
+            <img class="h-full w-full object-cover object-center transition-transform duration-300 ease-in-out group-hover/card:scale-110" src="https://image.tmdb.org/t/p/original/z53D72EAOxGRqdr7KXXWp9dJiDe.jpg" alt="Mission: Impossible - The Final Reckoning (2025)">
+          </div>
+
+          <div class="flex flex-col gap-1 text-white">
+            <h2 class="text-sm ">Mission: Impossible - The Final Reckoning</h2>
+            <h4 class="text-sm text-[#ffffff75]">2025</h4>
+          </div>
+        </li>
+      </ul>
+    </section>
+
+  </main>
+
+  <footer class="p-5 flex flex-col gap-5 items-center justify-center">
+
+    <a class="h-5" href="">
+      <img class="h-5" src="/logo.svg" alt="">
+    </a>
+
+    <nav class="transition-all ease-in-out duration-300">
+      <ul id="" class="text-sm capitalize text-white flex gap-5 flex-wrap justify-center">
+        <li class="transition-all ease-in-out duration-300 lg:hover:scale-110"><a href="">Horror</a></li>
+        <li class="transition-all ease-in-out duration-300 lg:hover:scale-110"><a href="">Adventure</a></li>
+        <li class="transition-all ease-in-out duration-300 lg:hover:scale-110"><a href="">Romantic</a></li>
+        <li class="transition-all ease-in-out duration-300 lg:hover:scale-110"><a href="">comedy</a></li>
+        <li class="transition-all ease-in-out duration-300 lg:hover:scale-110"><a href="">animation</a></li>
+      </ul>
+    </nav>
+
+    <div class="flex gap-3">
+      <a class="text-white bg-[#ffffff25] h-11 w-11 grid place-items-center rounded-3xl hover:bg-[#ff0000]" href="">
+        <svg class="fill-white" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="22" height="22" viewBox="0 0 48 48">
+        <path d="M 16.5 5 C 10.16639 5 5 10.16639 5 16.5 L 5 31.5 C 5 37.832757 10.166209 43 16.5 43 L 31.5 43 C 37.832938 43 43 37.832938 43 31.5 L 43 16.5 C 43 10.166209 37.832757 5 31.5 5 L 16.5 5 z M 16.5 8 L 31.5 8 C 36.211243 8 40 11.787791 40 16.5 L 40 31.5 C 40 36.211062 36.211062 40 31.5 40 L 16.5 40 C 11.787791 40 8 36.211243 8 31.5 L 8 16.5 C 8 11.78761 11.78761 8 16.5 8 z M 34 12 C 32.895 12 32 12.895 32 14 C 32 15.105 32.895 16 34 16 C 35.105 16 36 15.105 36 14 C 36 12.895 35.105 12 34 12 z M 24 14 C 18.495178 14 14 18.495178 14 24 C 14 29.504822 18.495178 34 24 34 C 29.504822 34 34 29.504822 34 24 C 34 18.495178 29.504822 14 24 14 z M 24 17 C 27.883178 17 31 20.116822 31 24 C 31 27.883178 27.883178 31 24 31 C 20.116822 31 17 27.883178 17 24 C 17 20.116822 20.116822 17 24 17 z"></path>
+        </svg>
+      </a>
+      <a class="text-white bg-[#ffffff25] h-11 w-11 grid place-items-center rounded-3xl hover:bg-[#ff0000]" href="">
+        <svg class="fill-white" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="22" height="22" viewBox="0 0 30 30">
+        <path d="M 15 4 C 10.814 4 5.3808594 5.0488281 5.3808594 5.0488281 L 5.3671875 5.0644531 C 3.4606632 5.3693645 2 7.0076245 2 9 L 2 15 L 2 15.001953 L 2 21 L 2 21.001953 A 4 4 0 0 0 5.3769531 24.945312 L 5.3808594 24.951172 C 5.3808594 24.951172 10.814 26.001953 15 26.001953 C 19.186 26.001953 24.619141 24.951172 24.619141 24.951172 L 24.621094 24.949219 A 4 4 0 0 0 28 21.001953 L 28 21 L 28 15.001953 L 28 15 L 28 9 A 4 4 0 0 0 24.623047 5.0546875 L 24.619141 5.0488281 C 24.619141 5.0488281 19.186 4 15 4 z M 12 10.398438 L 20 15 L 12 19.601562 L 12 10.398438 z"></path>
+        </svg>
+      </a>
+      </a>
+      <a class="text-white bg-[#ffffff25] h-11 w-11 grid place-items-center rounded-3xl hover:bg-[#ff0000]" href="">
+        <svg class="fill-white" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="22" height="22" viewBox="0 0 24 24">
+        <path d="M 2.3671875 3 L 9.4628906 13.140625 L 2.7402344 21 L 5.3808594 21 L 10.644531 14.830078 L 14.960938 21 L 21.871094 21 L 14.449219 10.375 L 20.740234 3 L 18.140625 3 L 13.271484 8.6875 L 9.2988281 3 L 2.3671875 3 z M 6.2070312 5 L 8.2558594 5 L 18.033203 19 L 16.001953 19 L 6.2070312 5 z"></path>
+        </svg>
+      </a>
+      </a>
+      <a class="text-white bg-[#ffffff25] h-11 w-11 grid place-items-center rounded-3xl hover:bg-[#ff0000]" href="">
+        <svg class="fill-white" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="22" height="22" viewBox="0 0 24 24">
+        <path d="M 5.3632812 2 L 2 6.6367188 L 2 20 L 7 20 L 7 23 L 10 23 L 13 20 L 17 20 L 22 15 L 22 2 L 5.3632812 2 z M 6 4 L 20 4 L 20 13 L 17 16 L 12 16 L 9 19 L 9 16 L 6 16 L 6 4 z M 11 7 L 11 12 L 13 12 L 13 7 L 11 7 z M 16 7 L 16 12 L 18 12 L 18 7 L 16 7 z"></path>
+        </svg>
+      </a>
+    </div>
+
+    <p class="text-[#ffffff50] text-sm">Kong 2024 Designed By me All Rights Reserved</p>
+  </footer>
+
+  <script src="/script.js"></script>
+</body>
+
+
+</html>

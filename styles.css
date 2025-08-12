@@ -1,0 +1,41 @@
+/* styles.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+}
+
+
+/* close btn */
+.closed >div:nth-of-type(2) {display: none;}
+.closed >div:nth-of-type(1) {
+  transition: .3s ease;
+  transform: rotate(45deg);
+  position: absolute;
+}
+.closed >div:nth-of-type(3) {
+  transition: .3s ease;
+  transform: rotate(-45deg);
+  position: absolute;
+}
+
+.hide-menu {
+  height: 0;
+  padding: 0 20px;
+  overflow: hidden;
+}
