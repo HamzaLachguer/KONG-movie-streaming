@@ -28,13 +28,13 @@
 <body class="bg-black">
   
 
-  <header class="flex items-center justify-between p-5 absolute top-0 z-[999999] w-full">
+  <header class="flex items-center justify-between p-5 absolute top-0 z-50 w-full">
     <a href="#" class="h-10 grid place-items-center">
       <img src="/logo.png" alt="KONG log - Back to home" class="h-6">
     </a>
     
-    <nav id="nav-menu" class="hide-menu nav-menu transition-all ease-in-out duration-300 absolute z-50 top-20 left-0 w-full bg-black lg:bg-transparent lg:h-fit lg:static lg:w-fit" aria-label="main navigation menu" aria-hidden="true" role="navigation">
-      <ul id="nav-list" class="nav-list text-sm capitalize p-5 text-white flex flex-col gap-6 lg:flex-row lg:text-base lg:gap-7">
+    <nav id="nav-menu" class="hide-menu transition-all ease-in-out duration-300 absolute -z-10 top-0 left-0 w-full bg-black lg:bg-transparent lg:h-fit lg:static lg:w-fit" aria-label="main navigation menu" aria-hidden="true" role="navigation">
+      <ul id="nav-list" class="nav-list text-sm capitalize text-white flex flex-col gap-6 lg:flex-row lg:text-base lg:gap-7">
         <li class="transition-all ease-in-out duration-300 lg:hover:scale-110"><a href="">Horror</a></li>
         <li class="transition-all ease-in-out duration-300 lg:hover:scale-110"><a href="">Adventure</a></li>
         <li class="transition-all ease-in-out duration-300 lg:hover:scale-110"><a href="">Romantic</a></li>
@@ -51,9 +51,9 @@
       </button>
 
       <button id="toggle-menu-btn" class=" h-10 w-10 flex flex-col gap-1 items-center justify-center relative lg:hidden" aria-expanded="false" aria-label="navigation menu toggler" aria-controls="nav-menu">
-        <div class="line h-[2px] w-5 bg-white "></div>
-        <div class="line h-[2px] w-5 bg-white "></div>
-        <div class="line h-[2px] w-5 bg-white "></div>
+        <div class="line h-[2px] w-5 bg-white transition-all ease-in-out duration-300"></div>
+        <div class="line h-[2px] w-5 bg-white transition-all ease-in-out duration-400"></div>
+        <div class="line h-[2px] w-5 bg-white transition-all ease-in-out duration-300"></div>
       </button>
     </div>
   </header>
@@ -61,21 +61,21 @@
 
   <main class="">
     <section class="relative">
-      <div>
-        <div class="h-screen overflow-hidden">
+      <div id="slide-data">
+        <!-- <div class="h-screen overflow-hidden">
           <img class="w-full h-full object-cover object-center" src="https://image.tmdb.org/t/p/original/vJerZdFTbPwNjKmAcSipd3jkBwW.jpg" alt="Ballerina (2025)" loading="lazy">
         </div> 
 
         <div id="hero-content" class="text-white flex flex-col gap-5 absolute z-[8888] bottom-9 left-0 p-5">
 
-          <div class="h-[100px] w-full overflow-hidden">
-            <img class="h-full object-cover object-center" src="https://image.tmdb.org/t/p/original/jdAWFEuysoBGkzB1MOnHr9qqqqP.png" alt="" loading="lazy">
+          <div class="h-[100px] w-full overflow-hidden animate-[heroSlider_1s_ease-in-out]">
+            <img class="h-full object-cover object-center animate-[heroSlider_1s_ease-in-out]" src="https://image.tmdb.org/t/p/original/jdAWFEuysoBGkzB1MOnHr9qqqqP.png" alt="" loading="lazy">
           </div>
 
           <div class="flex flex-col gap-5">
-            <p class="max-w-[560px]">Taking place during the events of John Wick: Chapter 3 – Parabellum, Eve Macarro begins her training in the assassin traditions of the Ruska Roma.</p>
+            <p class="max-w-[560px] animate-[heroSlider_1.5s_ease-in-out]">Taking place during the events of John Wick: Chapter 3 – Parabellum, Eve Macarro begins her training in the assassin traditions of the Ruska Roma.</p>
 
-            <div class="flex flex-col gap-5 md:flex-row md:items-center">
+            <div class="flex flex-col gap-5 md:flex-row md:items-center animate-[heroSlider_2s_ease-in-out]">
               <button class="w-fit flex items-center text-[15px] text-black gap-[10px] px-4 capitalize font-medium py-2 bg-white rounded-3xl">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M5 4.98951C5 4.01835 5 3.53277 5.20249 3.2651C5.37889 3.03191 5.64852 2.88761 5.9404 2.87018C6.27544 2.85017 6.67946 3.11953 7.48752 3.65823L18.0031 10.6686C18.6708 11.1137 19.0046 11.3363 19.1209 11.6168C19.2227 11.8621 19.2227 12.1377 19.1209 12.383C19.0046 12.6635 18.6708 12.886 18.0031 13.3312L7.48752 20.3415C6.67946 20.8802 6.27544 21.1496 5.9404 21.1296C5.64852 21.1122 5.37889 20.9679 5.20249 20.7347C5 20.467 5 19.9814 5 19.0103V4.98951Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -85,26 +85,26 @@
               <p class="text-yellow-500">Vengeance has a new face.</p>
             </div>
           </div>
-        </div>
+        </div> -->
       </div>
 
       <div class="absolute bottom-0 p-5 h-2/3 w-full flex flex-col items-center justify-between">
         <div class="flex items-center justify-between w-full">
-          <button class="text-white bg-[#00000070] h-10  w-10 grid place-items-center rounded-3xl">
+          <button id="next-slide" class="text-white bg-[#00000070] h-10  w-10 grid place-items-center rounded-3xl">
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
           </button>
-          <button class="text-white bg-[#00000050] h-10  w-10 grid place-items-center rounded-3xl">
+          <button id="previous-slide" class="text-white bg-[#00000050] h-10  w-10 grid place-items-center rounded-3xl">
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
           </button>
         </div>
 
-        <div class="flex gap-2">
-          <button data-slide-id="0" class="h-2 w-6 transition-all ease-in-out duration-300 bg-white rounded-2xl cursor-pointer"></button>
-          <button data-slide-id="0" class="h-2 w-2 transition-all ease-in-out duration-300 bg-[#ffffff50] rounded-2xl"></button>
+        <div id="slider-dots" class="flex gap-2">
+          <!-- <button data-slide-id="0" class="h-2 w-6 transition-all ease-in-out duration-300 bg-white rounded-2xl cursor-pointer"></button>
+          <button data-slide-id="0" class="h-2 w-2 transition-all ease-in-out duration-300 bg-[#ffffff50] rounded-2xl"></button> -->
         </div>
       </div>
     </section>
@@ -183,7 +183,7 @@
     <p class="text-[#ffffff50] text-sm">Kong 2024 Designed By me All Rights Reserved</p>
   </footer>
 
-  <script src="/script.js"></script>
+  <script type="module" src="/script.js"></script>
 </body>
 
 
