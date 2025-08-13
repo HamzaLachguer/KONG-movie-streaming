@@ -144,9 +144,57 @@ initSlider()
   *** THE MOVIE GRID | FETCHING API ***
   
 */
+const displayBtns = document.querySelectorAll("#movies-series button");
+const gridContainer = document.querySelector("#data-grid");
 
 const API_KEY = "bb28b6615bf6d0de7b544cd679643b59";
 
+const GENRE_URL = "https://api.themoviedb.org/3/genre/movie/list";
+const BASE_URL = "https://api.themoviedb.org/3";
+const IMAGE_BASE_URL = 'https://image.tmdb.org/t/p/w500';
+
+
 // FETCHING API
+async function fetchAPI(type) {
+  const response = await fetch(`${BASE_URL}/${type}/popular?api_key=${API_KEY}`);
+  const data = await response.json();
+  return data.results;
+}
+fetchAPI()
 
+// Render grid
+async function renderDataGrid(type) {
+  const dataList = await fetchAPI(type);
+  
+  dataList.map(x => {
+    
+    console.log(x)
+    return gridContainer.innerHTML += `
+      <li class="group-card flex flex-col gap-1 cursor-pointer" data-stream-id=${x.id}>
+        <div class="w-full overflow-hidden">
+          <img class="h-full w-full object-cover object-center transition-transform duration-300 ease-in-out group-hover/card:scale-110" src="${IMAGE_BASE_URL}${x.poster_path}"alt="Mission: Impossible - The Final Reckoning (2025)">
+        </div>
 
+        <div class="flex flex-col gap-1 text-white">
+          <h2 class="text-sm ">${x.title}</h2>
+          <h4 class="text-sm text-[#ffffff75]">2025</h4>
+        </div>
+      </li>
+    `
+  }).join
+}
+
+renderDataGrid("movie")
+
+displayBtns.forEach(btn => {
+  btn.addEventListener('click', () => {
+    displayBtns.forEach(b => b.classList.toggle("bg-[#ff0000]"));
+
+    // display id
+    const displayId = btn.dataset.category;
+    gridContainer.innerHTML = '';
+
+    renderDataGrid(displayId)
+    console.log(displayId);
+  })
+})

@@ -113,9 +113,9 @@
     <section class=" text-white">
 
       <!-- movies or series  -->
-      <div class="grid grid-cols-2">
-        <button class="border-t border-b border-r solid border-[#ffffff50] py-3 px-5 bg-[#ff0000]" data-category="movies">Movies</button>
-        <button class="border-t border-b  solid border-[#ffffff50] py-3 px-5" data-category="series">TV Shows</button>
+      <div id="movies-series" class="grid grid-cols-2">
+        <button class="border-t border-b border-r solid border-[#ffffff50] py-3 px-5 bg-[#ff0000]" data-category="movie">Movies</button>
+        <button class="border-t border-b  solid border-[#ffffff50] py-3 px-5" data-category="tv">TV Shows</button>
       </div>
 
       <!-- filter by type -->
@@ -123,7 +123,7 @@
         <li><button class="bg-[#ffffff50] w-20 px-3 py-1 grid place-items-center" data-genre-id="">All</button></li>
       </ul>
 
-      <ul class="movie-grid px-5 grid grid-cols-2 gap-3 md:grid-cols-3 lg:grid-cols-5 xl:grid-cols-6">
+      <ul id="data-grid" class=" px-5 grid grid-cols-2 gap-3 md:grid-cols-3 lg:grid-cols-5 xl:grid-cols-6">
         <li class="group-card flex flex-col gap-1 cursor-pointer">
           <div class="w-full overflow-hidden">
             <img class="h-full w-full object-cover object-center transition-transform duration-300 ease-in-out group-hover/card:scale-110" src="https://image.tmdb.org/t/p/original/z53D72EAOxGRqdr7KXXWp9dJiDe.jpg" alt="Mission: Impossible - The Final Reckoning (2025)">
