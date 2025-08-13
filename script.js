@@ -176,7 +176,7 @@ async function renderDataGrid(type) {
         </div>
 
         <div class="flex flex-col gap-1 text-white">
-          <h2 class="text-sm ">${x.title}</h2>
+          <h2 class="text-sm ">${x.original_title || x.original_name}</h2>
           <h4 class="text-sm text-[#ffffff75]">2025</h4>
         </div>
       </li>
