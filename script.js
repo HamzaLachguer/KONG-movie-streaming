@@ -37,6 +37,7 @@ let state = {
   sliderInterval: null,
   currentStreamingType: "movie",
   activeGenres: new Set(),
+  currentPage: 1,
 }
 
 
@@ -200,12 +201,6 @@ function resetSliderInterval() {
 
 
 
-// call functions after DOM is loaded
-document.addEventListener('DOMContentLoaded', () => {
-  initSlider();
-  initHeader();
-})
-
 
 /* ============ FETCHING FUNCTIONS ============== */
 
@@ -251,13 +246,12 @@ async function fetchFilterStream(streamingType, genreId) {
   let url = `${BASE_URL}discover/${streamingType}?api_key=${API_KEY}&with_genres=${genreId}`;
 
   const data = await fetchURL(url);
-   console.log(data.results)
+  // console.log(data.results)
   return data?.results || [];
 }
-//fetchFilterStream(state.currentStreamingType, 16)
 
-fetchStreaming(state.currentStreamingType)
-fetchGenres(state.currentStreamingType)
+// fetchStreaming(state.currentStreamingType)
+// fetchGenres(state.currentStreamingType)
 
 
 // movie card
@@ -270,7 +264,7 @@ function renderStreamCard(stream) {
   return `
     <li data-stream-id="${id}" class="group-card flex flex-col gap-1 cursor-pointer">
       <div class="w-full overflow-hidden">
-        <img class="h-full w-full object-cover object-center transition-transform duration-300 ease-in-out group-hover/card:scale-110" src="https://image.tmdb.org/t/p/original/${poster_path}" alt="${streamTitle}">
+        <img class="h-full w-full object-cover object-center transition-transform duration-300 ease-in-out group-hover/card:scale-110" src="${IMAGE_BASE_URL}${poster_path}" alt="${streamTitle}">
       </div>
 
       <div class="flex flex-col gap-1 text-white">
@@ -355,13 +349,26 @@ function filterStream() {
       renderStreamGrid(state.currentStreamingType);
       renderGenresGrid(state.currentStreamingType);
 
-      state.activeGenres.clear()
-      console.log(stream)
+      state.activeGenres.clear();
     })
   })
 }
 
-filterStream()
+function initGrid() {
+  
+  filterStream();
+  renderStreamGrid(state.currentStreamingType);
+  renderGenresGrid(state.currentStreamingType);
+}
 
-renderStreamGrid(state.currentStreamingType)
-renderGenresGrid(state.currentStreamingType)
+
+
+
+
+
+// call functions after DOM is loaded
+document.addEventListener('DOMContentLoaded', () => {
+  initSlider();
+  initHeader();
+  initGrid();
+})
