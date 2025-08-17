@@ -34,11 +34,10 @@ body {
   position: absolute;
 }
 
-.hide-menu {
-  height: 0;
-  padding: 0 20px;
-  overflow: hidden;
-}
+/* .show-menu {
+  height: fit-content;
+  transition: .3s ease-in-out;
+} */
 
 
 
@@ -70,4 +69,11 @@ body {
   100% {
     opacity: 1;
   }
+}
+
+
+.hide-search-field {
+  height: 0;
+  overflow: hidden;
+  transition: .3s ease;
 }
