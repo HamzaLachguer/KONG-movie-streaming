@@ -27,7 +27,10 @@ const slider = {
 const grid = {
   streamsGrid: document.querySelector("#data-grid"),
   genreGrid: document.querySelector("#genres-grid"),
-  filterStramBtns: document.querySelectorAll("#movies-series button")
+  filterStramBtns: document.querySelectorAll("#movies-series button"),
+  nextPage: document.querySelector("#next-page"),
+  prevPage: document.querySelector("#previous-page"),
+  pageCount: document.querySelector("#page-number"),
 }
 
 
@@ -224,7 +227,7 @@ async function fetchURL(url) {
 
 // Fetch streaming
 async function fetchStreaming(streamingType, page) {
-  let url = `${BASE_URL}${streamingType}/popular?api_key=${API_KEY}`;
+  let url = `${BASE_URL}${streamingType}/popular?api_key=${API_KEY}&page=${page}`;
 
   const data = await fetchURL(url);
   //console.log(data.results)
@@ -242,8 +245,8 @@ async function fetchGenres(streamingType) {
 
 
 
-async function fetchFilterStream(streamingType, genreId) {
-  let url = `${BASE_URL}discover/${streamingType}?api_key=${API_KEY}&with_genres=${genreId}`;
+async function fetchFilterStream(streamingType, genreId, page) {
+  let url = `${BASE_URL}discover/${streamingType}?api_key=${API_KEY}&with_genres=${genreId}&page=${page}`;
 
   const data = await fetchURL(url);
   // console.log(data.results)
@@ -295,9 +298,12 @@ function renderGenreCard(genre) {
       state.activeGenres.add(id);
     }
     
+    state.currentPage = 1;
+    updatePageCount(state.currentPage);
+    disablePrevious();
     // rendering new grid
     const activeGenres = [...state.activeGenres].map(x => `${x}`).join(",");
-    renderFilteredStreamGrid(state.currentStreamingType, activeGenres)
+    renderFilteredStreamGrid(state.currentStreamingType, activeGenres, state.currentPage);
   })
 
   li.appendChild(button);
@@ -305,8 +311,8 @@ function renderGenreCard(genre) {
 }
 
 // render stream grid
-async function renderFilteredStreamGrid(streamType, activeGenres) {
-  const streamList = await fetchFilterStream(streamType, activeGenres);
+async function renderFilteredStreamGrid(streamType, activeGenres, page) {
+  const streamList = await fetchFilterStream(streamType, activeGenres, page);
   if (!streamList.length) return;
 
   grid.streamsGrid.innerHTML = '';
@@ -345,8 +351,12 @@ function filterStream() {
       btn.classList.add("bg-[#ff0000]");
       let stream = btn.dataset.category;
       //streamingType === state.currentStreamingType;
+      state.currentPage = 1;
+      updatePageCount(state.currentPage);
+      disablePrevious();
+
       state.currentStreamingType = stream;
-      renderStreamGrid(state.currentStreamingType);
+      renderStreamGrid(state.currentStreamingType, state.currentPage);
       renderGenresGrid(state.currentStreamingType);
 
       state.activeGenres.clear();
@@ -354,10 +364,78 @@ function filterStream() {
   })
 }
 
+// toggle pages
+function loadNextPage() {
+  state.currentPage += 1;
+  updatePageCount(state.currentPage);
+
+  enablePrevious()
+
+  window.scrollTo({
+    top: window.innerHeight,
+    behavior: 'smooth' // optional smooth scrolling
+  });
+
+  const activeGenres = [...state.activeGenres].map(x => `${x}`).join(",");
+
+  if (!state.activeGenres.size) {
+    renderStreamGrid(state.currentStreamingType, state.currentPage);
+  } else {
+    renderFilteredStreamGrid(state.currentStreamingType, activeGenres, state.currentPage);
+  }
+}
+
+
+function loadPreviousPage() {
+  if (state.currentPage == 1) return;
+
+  if (state.currentPage == 2) {
+    disablePrevious()
+  };
+
+  state.currentPage -= 1;
+  updatePageCount(state.currentPage);
+
+  window.scrollTo({
+    top: window.innerHeight,
+    behavior: 'smooth' // optional smooth scrolling
+  });
+
+  const activeGenres = [...state.activeGenres].map(x => `${x}`).join(",");
+
+  if (!state.activeGenres.size) {
+    renderStreamGrid(state.currentStreamingType, state.currentPage);
+  } else {
+    renderFilteredStreamGrid(state.currentStreamingType, activeGenres, state.currentPage);
+  }
+}
+
+function updatePageCount(p) {
+  grid.pageCount.textContent = String(p).padStart('2', 0);
+} 
+
+function enablePrevious() {
+  grid.prevPage.classList.remove("bg-[#ffffff50]");
+  grid.prevPage.classList.add("bg-[#ff0000]");
+}
+
+function disablePrevious() {
+  grid.prevPage.classList.add("bg-[#ffffff50]");
+  grid.prevPage.classList.remove("bg-[#ff0000]");
+}
+
+// event listeners
+function pagesEvents() {
+  grid.nextPage.addEventListener('click', loadNextPage);
+  grid.prevPage.addEventListener('click', loadPreviousPage);
+}
+
+
 function initGrid() {
-  
+  pagesEvents();
+
   filterStream();
-  renderStreamGrid(state.currentStreamingType);
+  renderStreamGrid(state.currentStreamingType, state.currentPage);
   renderGenresGrid(state.currentStreamingType);
 }
 
