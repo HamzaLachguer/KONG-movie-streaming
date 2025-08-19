@@ -14,7 +14,8 @@ const header = {
   navMenu: document.querySelector("#nav-menu"),
   searchBtn: document.querySelector("#search-btn"),
   searchForm: document.querySelector("#search-form"),
-  body: document.querySelector("body")
+  body: document.querySelector("body"),
+  searchField: document.querySelector("#search-input"),
 }
 
 const slider = {
@@ -253,8 +254,40 @@ async function fetchFilterStream(streamingType, genreId, page) {
   return data?.results || [];
 }
 
-// fetchStreaming(state.currentStreamingType)
-// fetchGenres(state.currentStreamingType)
+
+async function searchStream(value) {
+  let url = `${BASE_URL}search/movie?api_key=${API_KEY}&query=${value}`;
+  const data = await fetchURL(url);
+
+  return data?.results || [];
+}
+
+async function searchEvent(e) {
+  if (e.key !== 'Enter') return;
+  
+  e.preventDefault();
+  const serachQuery = header.searchField.value.trim();
+  if (!serachQuery) {
+    return
+  }
+  
+  document.querySelector("#slider-section").remove();
+  document.querySelector("#movies-series").remove();
+  grid.genreGrid.remove();
+  grid.streamsGrid.innerHTML = '';
+
+  return await searchStream(serachQuery);
+}
+
+header.searchField.addEventListener('keypress', async (e) => {
+  const searchResult = await searchEvent(e);
+
+  searchResult.forEach(result => {
+    grid.streamsGrid.classList.add("mt-[80px]")
+    grid.streamsGrid.innerHTML += renderStreamCard(result);
+  })
+})
+
 
 
 // movie card
